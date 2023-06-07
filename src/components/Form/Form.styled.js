@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: rgba(16, 108, 193, 0.5);
+  background-color: ${({ night }) => (night ? "rgba(244,244,244,0.1)" : "rgba(16, 108, 193, 0.5)")};
   padding: 20px 30px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -33,6 +33,6 @@ export const SearchButton = styled.button`
     color: white;
     background: #0f6fb9;
     cursor: pointer;
-  border: 1px solid #fff;
+    border: 1px solid #fff;
   }
 `;

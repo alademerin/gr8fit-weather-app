@@ -17,10 +17,11 @@ const WeatherCard = ({
   windDirection,
   date,
   celciusSelected,
-  farenheitSelected
+  farenheitSelected,
+  night
 }) => {
   return (
-    <Container>
+    <Container night={night}>
       <LeftCard style={{ marginTop: "10px" }}>
         <PlaceName>
           <p>

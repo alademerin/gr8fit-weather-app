@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { Container, SearchButton } from "./Form.styled";
 
-const Form = ({ onFormSubmit, inputValueChanged, searchDefaultValue }) => {
+const Form = ({ onFormSubmit, inputValueChanged, searchDefaultValue , night}) => {
   const searchBarRef = useRef(null);
 
   return (
-    <Container>
+    <Container night={night}>
       <p>Search City</p>
       <form onSubmit={onFormSubmit}>
         <SearchBar

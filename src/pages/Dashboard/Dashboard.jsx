@@ -8,6 +8,7 @@ import { FidgetSpinner } from "react-loader-spinner";
 import { Container } from "./Dashboard.styled.js";
 
 import Day from "../../assets/day.jpg";
+import Night from "../../assets/night.jpg";
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -18,6 +19,7 @@ const Dashboard = () => {
   const [dataLoading, setDataLoading] = useState(false);
   const [celciusSelected, setCelciusSelected] = useState(true);
   const [farenheitSelected, setFarenheitSelected] = useState(false);
+  const [isDay, setIsDay] = useState(null);
 
   // const formatTime = timeFormat("%B %d %Y");
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -30,6 +32,7 @@ const Dashboard = () => {
       );
       const data = await response.data;
       await setWeatherData([data]);
+      setIsDay(data.current.is_day);
       setDataLoading(false);
     } catch (e) {
       alert("invalid input: location not found");
@@ -49,6 +52,7 @@ const Dashboard = () => {
         );
         const data = response.data;
         await setWeatherData([data]);
+        setIsDay(data.current.is_day);
         setDataLoading(false);
       } catch (error) {
         alert("Unable to retrieve your current location");
@@ -90,10 +94,13 @@ const Dashboard = () => {
 
   // const formattedDate = ;
 
-  console.log(weatherData);
   return (
-    <Container img={Day}>
-      <Form inputValueChanged={handleInputChange} onFormSubmit={handleFormSubmit} />
+    <Container img={isDay === 1 ? Day : Night}>
+      <Form
+        inputValueChanged={handleInputChange}
+        onFormSubmit={handleFormSubmit}
+        night={!isDay && true}
+      />
       {dataLoading ? (
         <>
           <p style={{ fontSize: "30px" }}>Loading location....</p>
@@ -129,6 +136,7 @@ const Dashboard = () => {
               windDirection={wd.current.wind_dir}
               celciusSelected={celciusSelected}
               farenheitSelected={farenheitSelected}
+                night={!isDay&&true}
             />
           ))}
         </div>

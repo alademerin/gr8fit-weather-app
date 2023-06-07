@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  background-color: rgba(0, 108, 193, 0.4);
+  background-color: ${({ night }) => (night ? "rgba(244,244,244,0.1)" : "rgba(16, 108, 193, 0.5)")};
+  /* background-color: rgba(0, 108, 193, 0.4); */
   padding: 25px 35px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
