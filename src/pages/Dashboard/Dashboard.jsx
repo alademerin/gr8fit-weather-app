@@ -28,7 +28,7 @@ const Dashboard = () => {
     setDataLoading(true);
     try {
       const response = await axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`
+        `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`
       );
       const data = await response.data;
       await setWeatherData([data]);
@@ -48,7 +48,7 @@ const Dashboard = () => {
         const position = await getCurrentPosition();
         const { latitude, longitude } = position.coords;
         const response = await axios.get(
-          `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`
+          `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`
         );
         const data = response.data;
         await setWeatherData([data]);
@@ -136,7 +136,7 @@ const Dashboard = () => {
               windDirection={wd.current.wind_dir}
               celciusSelected={celciusSelected}
               farenheitSelected={farenheitSelected}
-                night={!isDay&&true}
+              night={!isDay&&true}
             />
           ))}
         </div>
