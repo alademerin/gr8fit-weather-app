@@ -13,7 +13,7 @@ export const Container = styled.div`
   justify-content: center;
 
   @media only screen and (max-width: 600px) {
-    padding:  20px;
+    padding: 20px;
     overflow: scroll;
   }
 `;
