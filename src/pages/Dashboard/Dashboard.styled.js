@@ -4,7 +4,7 @@ export const Container = styled.div`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-position: center;
-    background-size:cover;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -13,6 +13,7 @@ export const Container = styled.div`
   justify-content: center;
 
   @media only screen and (max-width: 600px) {
-    /* padding: 0 20px; */
+    padding:  20px;
+    overflow: scroll;
   }
 `;
