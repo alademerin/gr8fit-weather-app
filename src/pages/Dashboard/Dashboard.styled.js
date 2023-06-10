@@ -12,8 +12,11 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
+    overflow: scroll;
+
+
   @media only screen and (max-width: 600px) {
     padding: 20px;
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 `;

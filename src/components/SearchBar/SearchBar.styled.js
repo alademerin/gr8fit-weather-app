@@ -16,5 +16,6 @@ export const Container = styled.div`
     width:100%;
     &::placeholder{
       color: white;
+      width:300px;
   }
 `;
